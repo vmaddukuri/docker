@@ -26,6 +26,8 @@ node{
 		sh '''git clone http://$USERNAME:$PASSWORD@github.com/vmaddukuri/docker.git'''
 	
 	}
+	
+	sh 'ls'
 
 	def customImage = docker.build("vijaymaddukuri/maven:latest1")
 	
