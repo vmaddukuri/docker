@@ -17,7 +17,14 @@ void runStages(String tag) {
 	}
 	
 node{
-    sh 'git clone https://github.com/vmaddukuri/docker.git'
+
+	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'GIT-DEMO',
+					  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+	
+		sh '''git clone http://$USERNAME:$PASSWORD@github.com/vmaddukuri/docker.git'''
+	
+	}
+
 	def customImage = docker.build("vijaymaddukuri/maven:latest1")
 	
 
