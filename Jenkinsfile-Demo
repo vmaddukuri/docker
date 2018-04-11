@@ -18,13 +18,6 @@ void runStages(String tag) {
 	
 node{
 
-	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'GIT-DEMO',
-					  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-	
-		sh '''git clone http://$USERNAME:$PASSWORD@github.com/vmaddukuri/docker.git'''
-	
-	}
-
 	sh '''
 	dir=$(pwd)
 	docker build -f $dir/docker/Dockerfile . -t vijaymaddukuri:demo
