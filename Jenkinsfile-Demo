@@ -1,4 +1,10 @@
 void runStages(String tag) {
+
+   agent {
+   
+		dockerfile true
+		
+		
     
     docker.image(tag).inside("--privileged=true --user root") {
 	
@@ -16,6 +22,8 @@ void runStages(String tag) {
 	}
 	
 node{
+
+	def customImage = docker.build("vijaymaddukuri/maven:latest1")
 
 	imageTag = "vijaymaddukuri/maven:latest"
 	runStages(imageTag)
