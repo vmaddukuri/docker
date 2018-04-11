@@ -1,0 +1,23 @@
+void runStages(String tag) {
+    
+    docker.image(tag).inside("--privileged=true --user root") {
+	
+				
+				stage('Copy the POM file'){
+
+					sh '''
+						dir=$(pwd)
+						export PATH=$PATH:/opt/gradle/gradle-3.5/bin
+						cd $dir && gradle init && chmod +x gradlew && ./gradlew sonarqube			
+					'''						
+				}
+
+		}
+	}
+	
+node{
+
+	imageTag = "vijaymaddukuri/maven:latest"
+	runStages(imageTag)
+  
+}
