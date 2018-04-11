@@ -17,10 +17,11 @@ void runStages(String tag) {
 	}
 	
 node{
-
+    sh 'ls'
 	def customImage = docker.build("vijaymaddukuri/maven:latest1")
+	
 
-	imageTag = "vijaymaddukuri/maven:latest"
+	imageTag = "vijaymaddukuri/maven:latest1"
 	runStages(imageTag)
   
 }
