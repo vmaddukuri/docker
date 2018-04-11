@@ -20,12 +20,11 @@ node{
 
 	sh '''
 	dir=$(pwd)
-	docker build . -t vijaymaddukuri:demo
 	'''
-	//def customImage = docker.build("vijaymaddukuri:demo")
+	def testImage = docker.build("test-image", "./docker")
 	
 
-	imageTag = "vijaymaddukuri/maven:latest1"
+	imageTag = "test-image"
 	runStages(imageTag)
   
 }
