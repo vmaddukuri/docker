@@ -18,6 +18,8 @@ void runStages(String tag) {
 	
 node{
 
+        sh 'git config --global http.proxy https://10.131.236.9:3128/'
+
 	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'GIT-DEMO',
 					  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 	
