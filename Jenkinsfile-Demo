@@ -17,7 +17,7 @@ void runStages(String tag) {
 	}
 	
 node{
-    sh 'ls'
+    sh 'git clone https://github.com/vmaddukuri/docker.git'
 	def customImage = docker.build("vijaymaddukuri/maven:latest1")
 	
 
