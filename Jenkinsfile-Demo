@@ -1,9 +1,4 @@
 void runStages(String tag) {
-
-   agent {
-   
-		dockerfile true
-		
 		
     
     docker.image(tag).inside("--privileged=true --user root") {
