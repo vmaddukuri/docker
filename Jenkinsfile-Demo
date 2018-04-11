@@ -18,9 +18,13 @@ void runStages(String tag) {
 	
 node{
 
-	sh '''
-	dir=$(pwd)
-	'''
+	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'GIT-DEMO',
+					  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+	
+		sh '''git clone http://$USERNAME:$PASSWORD@github.com/vmaddukuri/docker.git'''
+	
+	}
+
 	def testImage = docker.build("test-image", "./docker")
 	
 
