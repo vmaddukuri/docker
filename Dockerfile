@@ -9,5 +9,3 @@ RUN sudo rm -rf /opt/gradle
 RUN sudo mkdir /opt/gradle
 
 RUN sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
-
-RUN echo "export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin" >> /home/jenkins/.bashrc
