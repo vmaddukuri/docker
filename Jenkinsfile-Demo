@@ -18,18 +18,18 @@ void runStages(String tag) {
 	
 node{
 
-        sh 'git config --global http.proxy https://10.131.236.9:3128/'
-
 	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'GIT-DEMO',
 					  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 	
 		sh '''git clone http://$USERNAME:$PASSWORD@github.com/vmaddukuri/docker.git'''
 	
 	}
-	
-	sh 'ls'
 
-	def customImage = docker.build("vijaymaddukuri/maven:latest1")
+	sh '''
+	dir=$(pwd)
+	docker build -f $dir/docker/Dockerfile . -t vijaymaddukuri:demo
+	'''
+	//def customImage = docker.build("vijaymaddukuri:demo")
 	
 
 	imageTag = "vijaymaddukuri/maven:latest1"
