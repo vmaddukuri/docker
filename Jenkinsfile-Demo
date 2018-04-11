@@ -9,6 +9,7 @@ void runStages(String tag) {
 					sh '''
 						dir=$(pwd)
 						export PATH=$PATH:/opt/gradle/gradle-3.5/bin
+						gradle -v
 						cd $dir && gradle init && chmod +x gradlew && ./gradlew sonarqube			
 					'''						
 				}
