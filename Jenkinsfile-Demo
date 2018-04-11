@@ -20,7 +20,7 @@ node{
 
 	sh '''
 	dir=$(pwd)
-	docker build -f $dir/docker/Dockerfile . -t vijaymaddukuri:demo
+	docker build . -t vijaymaddukuri:demo
 	'''
 	//def customImage = docker.build("vijaymaddukuri:demo")
 	
