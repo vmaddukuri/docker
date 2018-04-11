@@ -17,7 +17,7 @@ void runStages(String tag) {
 	}
 	
 node{
-
+	sh 'rm -fr docker'
 	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'GIT-DEMO',
 					  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 	
